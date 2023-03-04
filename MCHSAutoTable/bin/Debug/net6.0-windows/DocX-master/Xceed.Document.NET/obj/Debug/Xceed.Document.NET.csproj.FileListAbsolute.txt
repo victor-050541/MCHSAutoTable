@@ -1,0 +1,6 @@
+C:\Users\Victor\source\repos\MCHSAutoTable\MCHSAutoTable\bin\Debug\net6.0-windows\DocX-master\Xceed.Document.NET\bin\Debug\Xceed.Document.NET.dll
+C:\Users\Victor\source\repos\MCHSAutoTable\MCHSAutoTable\bin\Debug\net6.0-windows\DocX-master\Xceed.Document.NET\bin\Debug\Xceed.Document.NET.pdb
+C:\Users\Victor\source\repos\MCHSAutoTable\MCHSAutoTable\bin\Debug\net6.0-windows\DocX-master\Xceed.Document.NET\obj\Debug\Xceed.Document.NET.csproj.AssemblyReference.cache
+C:\Users\Victor\source\repos\MCHSAutoTable\MCHSAutoTable\bin\Debug\net6.0-windows\DocX-master\Xceed.Document.NET\obj\Debug\Xceed.Document.NET.csproj.CoreCompileInputs.cache
+C:\Users\Victor\source\repos\MCHSAutoTable\MCHSAutoTable\bin\Debug\net6.0-windows\DocX-master\Xceed.Document.NET\obj\Debug\Xceed.Document.NET.dll
+C:\Users\Victor\source\repos\MCHSAutoTable\MCHSAutoTable\bin\Debug\net6.0-windows\DocX-master\Xceed.Document.NET\obj\Debug\Xceed.Document.NET.pdb
