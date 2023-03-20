@@ -1,6 +1,9 @@
+using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.Office.CustomUI;
+using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Vml;
 using MCHSAutoTable.Entityes;
+using MCHSAutoTable.Entityes.coworker;
 using MCHSAutoTable.Entityes.edds;
 using Microsoft.Office.Interop.Word;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -10,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 using Button = System.Windows.Forms.Button;
+using Color = System.Drawing.Color;
 
 namespace MCHSAutoTable
 {
@@ -127,7 +131,7 @@ namespace MCHSAutoTable
         List<string[]> dataPatients = new List<string[]>();
         void updateTablePatient()
         {
-            dataGridView2.Rows.Clear();
+            dataGridView3.Rows.Clear();
             comboBox10.Items.Clear();
 
             dataPatients = workingDB.getPatients();
@@ -136,7 +140,7 @@ namespace MCHSAutoTable
             {
                 foreach (string[] s in dataPatients)
                 {
-                    dataGridView2.Rows.Add(s);
+                    dataGridView3.Rows.Add(s);
                     comboBox10.Items.Add(s[0]);
                 }
             }
@@ -515,15 +519,23 @@ namespace MCHSAutoTable
         //Добавление Пациента
         private void button16_Click(object sender, EventArgs e)
         {
-            string idStaff = dataStaff[listBox2.SelectedIndex][6];
+            string FIOStaff = dataStaff[listBox2.SelectedIndex][0];
+            string phoneNumber = dataStaff[listBox2.SelectedIndex][5];
+            string subDep = dataStaff[listBox2.SelectedIndex][3];
+            string position = dataStaff[listBox2.SelectedIndex][1];
+            string rank = dataStaff[listBox2.SelectedIndex][2];
+            string shift = dataStaff[listBox2.SelectedIndex][4];
             string date = dateTimePicker1.Value.ToShortDateString();
             string diagnosis = comboBox8.Text;
             string healing = radioButton4.Checked ? "амбулаторное" : "стационарное";
             string vaccinated = checkBox1.Checked ? "+" : "-";
 
-            if (!(idStaff.Equals("1")))
+            List<string[]> nameFIO = workingDB.getPatients();
+
+            if (!(nameFIO.Equals(dataStaff[listBox2.SelectedIndex][0])))
             {
-                workingDB.addDBPatient(idStaff, date, diagnosis, healing, vaccinated);
+                workingDB.addDBPatient(FIOStaff, phoneNumber, subDep, position,  rank,  date,
+            diagnosis, healing, shift, vaccinated);
 
                 textBox9.Clear();
                 comboBox8.Items.Clear();
@@ -545,15 +557,14 @@ namespace MCHSAutoTable
         {
             if (!(comboBox10.SelectedIndex == -1))
             {
-                workingDB.deletePatient(dataPatients[comboBox10.SelectedIndex][3]);
+                workingDB.deletePatient(dataPatients[comboBox10.SelectedIndex][10]);
                 comboBox10.Items.Clear();
                 updateTablePatient();
             }
             else
             {
                 MessageBox.Show("Не выбран элемент для удаления!");
-            }
-            
+            }         
         }
     }
 }

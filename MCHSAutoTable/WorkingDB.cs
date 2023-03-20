@@ -10,11 +10,13 @@ namespace MCHSAutoTable
     public class WorkingDB
     {
         //Добавление пациента в заболевшие
-        public void addDBPatient(string idStaff, string Date, string Diagnosis, string Healing, string Vaccinated)
+        public void addDBPatient(string FIOStaff, string PhoneNumber, string SubDep, string Position, string Rank, string Date,
+            string Diagnosis, string Healing, string Shift, string Vaccinated)
         {
             using (ApplicationContext db = new ApplicationContext())
             {                
-                db.Patients.Add(new Patients { StaffId = idStaff, Date = Date, Diagnosis = Diagnosis, Healing = Healing, Vaccinated = Vaccinated });                
+                db.Patients.Add(new Patients { FIO = FIOStaff, PhoneNumber = PhoneNumber, SubDepartment = SubDep, Position = Position, Rank = Rank,
+                    Date = Date, Diagnosis = Diagnosis, Shift = Shift, Healing = Healing, Vaccinated = Vaccinated });                
                 db.SaveChanges();                                
             }
         }
@@ -221,11 +223,18 @@ namespace MCHSAutoTable
                 var patients = db.Patients.ToList();
                 foreach (Patients e in patients)
                 {
-                    dataPatient.Add(new string[4]);
-                    dataPatient[i][0] = e.StaffId;
-                    dataPatient[i][1] = e.Date;
-                    dataPatient[i][2] = e.Diagnosis;
-                    dataPatient[i][3] = Convert.ToString(e.PatientsId);
+                    dataPatient.Add(new string[11]);
+                    dataPatient[i][0] = e.FIO;
+                    dataPatient[i][1] = e.PhoneNumber;
+                    dataPatient[i][2] = e.SubDepartment;
+                    dataPatient[i][3] = e.Position;
+                    dataPatient[i][4] = e.Rank;
+                    dataPatient[i][5] = e.Date;
+                    dataPatient[i][7] = e.Diagnosis;
+                    dataPatient[i][6] = e.Shift;
+                    dataPatient[i][8] = e.Healing;
+                    dataPatient[i][9] = e.Vaccinated;
+                    dataPatient[i][10] = Convert.ToString(e.PatientsId);
                     i++;
                 }
                 return dataPatient;

@@ -1213,7 +1213,7 @@
             this.splitContainer3.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer3.Panel2MinSize = 0;
             this.splitContainer3.Size = new System.Drawing.Size(985, 550);
-            this.splitContainer3.SplitterDistance = 462;
+            this.splitContainer3.SplitterDistance = 461;
             this.splitContainer3.TabIndex = 0;
             // 
             // maskedTextBox1
@@ -1316,7 +1316,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(519, 550);
+            this.dataGridView1.Size = new System.Drawing.Size(520, 550);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
