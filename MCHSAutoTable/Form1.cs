@@ -43,11 +43,11 @@ namespace MCHSAutoTable
         //ЕДДС
         private void button1_Click(object sender, EventArgs e)
         {
-            //workingDB.clearRowInTableEDDS();
-            //listBox1.Items.Clear();
+            workingDB.clearRowInTableEDDS();
+            listBox1.Items.Clear();
 
-            InputDataWordExcel inputDataWordExcel = new InputDataWordExcel();
-            inputDataWordExcel.createTableExcelPatients();
+            //InputDataWordExcel inputDataWordExcel = new InputDataWordExcel();
+            //inputDataWordExcel.createTableExcelPatients();
 
             //Загрузка в список
             if (dataEDDS.Count > 0)
