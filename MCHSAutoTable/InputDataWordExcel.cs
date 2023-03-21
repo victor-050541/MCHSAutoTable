@@ -1,12 +1,15 @@
-﻿using MCHSAutoTable.Entityes.edds;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using MCHSAutoTable.Entityes.edds;
+using System.Runtime.InteropServices;
 using Xceed.Document.NET;
 using Xceed.Words.NET;
+using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace MCHSAutoTable
 {
     public class InputDataWordExcel
     {
-
         public void createTableWordEDDS(string FIO, List<string[]> EDDSTableList)
         {
             //Получение даты и времени
@@ -66,6 +69,44 @@ namespace MCHSAutoTable
             }
             else
                 MessageBox.Show("Таблица не содержит данных, заполните данные во вкладке ЗАПОЛНЕНИЕ ЕДДС");
+        }
+
+        public void createTableExcelPatients()
+        {
+            Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+            if (xlApp == null)
+            {
+                MessageBox.Show("Excel is not properly installed!!");
+                return;
+            }
+
+
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            xlWorkSheet.Cells[1, 1] = "ID";
+            xlWorkSheet.Cells[1, 2] = "Name";
+            xlWorkSheet.Cells[2, 1] = "1";
+            xlWorkSheet.Cells[2, 2] = "One";
+            xlWorkSheet.Cells[3, 1] = "2";
+            xlWorkSheet.Cells[3, 2] = "Two";
+
+
+
+            xlWorkBook.SaveAs("d:\\csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            Marshal.ReleaseComObject(xlWorkSheet);
+            Marshal.ReleaseComObject(xlWorkBook);
+            Marshal.ReleaseComObject(xlApp);
+
+            MessageBox.Show("Excel file created , you can find the file d:\\csharp-Excel.xls");
         }
     }
 }

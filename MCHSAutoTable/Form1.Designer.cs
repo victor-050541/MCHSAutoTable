@@ -127,6 +127,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button20 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -181,7 +182,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2MinSize = 0;
             this.splitContainer1.Size = new System.Drawing.Size(1274, 550);
-            this.splitContainer1.SplitterDistance = 284;
+            this.splitContainer1.SplitterDistance = 282;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -203,7 +204,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 550);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(282, 550);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // button6
@@ -269,7 +270,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(985, 550);
+            this.panel6.Size = new System.Drawing.Size(987, 550);
             this.panel6.TabIndex = 3;
             this.panel6.Visible = false;
             // 
@@ -281,6 +282,7 @@
             // 
             // splitContainer5.Panel1
             // 
+            this.splitContainer5.Panel1.Controls.Add(this.button20);
             this.splitContainer5.Panel1.Controls.Add(this.panel7);
             this.splitContainer5.Panel1.Controls.Add(this.comboBox10);
             this.splitContainer5.Panel1.Controls.Add(this.button19);
@@ -304,8 +306,8 @@
             // 
             this.splitContainer5.Panel2.Controls.Add(this.dataGridView3);
             this.splitContainer5.Panel2MinSize = 0;
-            this.splitContainer5.Size = new System.Drawing.Size(985, 550);
-            this.splitContainer5.SplitterDistance = 524;
+            this.splitContainer5.Size = new System.Drawing.Size(987, 550);
+            this.splitContainer5.SplitterDistance = 560;
             this.splitContainer5.TabIndex = 0;
             // 
             // panel7
@@ -327,7 +329,7 @@
             this.comboBox9.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox9.FormattingEnabled = true;
             this.comboBox9.Location = new System.Drawing.Point(237, 42);
-            this.comboBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(140, 29);
             this.comboBox9.TabIndex = 18;
@@ -392,7 +394,7 @@
             this.comboBox10.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox10.FormattingEnabled = true;
             this.comboBox10.Location = new System.Drawing.Point(65, 351);
-            this.comboBox10.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox10.Name = "comboBox10";
             this.comboBox10.Size = new System.Drawing.Size(250, 29);
             this.comboBox10.TabIndex = 29;
@@ -463,7 +465,7 @@
             this.comboBox8.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox8.FormattingEnabled = true;
             this.comboBox8.Location = new System.Drawing.Point(12, 95);
-            this.comboBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(154, 29);
             this.comboBox8.TabIndex = 21;
@@ -475,7 +477,7 @@
             this.listBox2.ItemHeight = 19;
             this.listBox2.Location = new System.Drawing.Point(200, 16);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(186, 156);
+            this.listBox2.Size = new System.Drawing.Size(275, 137);
             this.listBox2.TabIndex = 11;
             // 
             // radioButton3
@@ -566,12 +568,12 @@
             this.dataGridViewTextBoxColumn7});
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersWidth = 62;
             this.dataGridView3.RowTemplate.Height = 33;
-            this.dataGridView3.Size = new System.Drawing.Size(457, 550);
+            this.dataGridView3.Size = new System.Drawing.Size(423, 550);
             this.dataGridView3.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn3
@@ -605,7 +607,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(985, 550);
+            this.panel3.Size = new System.Drawing.Size(987, 550);
             this.panel3.TabIndex = 2;
             this.panel3.Visible = false;
             // 
@@ -642,7 +644,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.dataGridView2);
             this.splitContainer4.Panel2MinSize = 0;
-            this.splitContainer4.Size = new System.Drawing.Size(985, 550);
+            this.splitContainer4.Size = new System.Drawing.Size(987, 550);
             this.splitContainer4.SplitterDistance = 634;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -665,7 +667,7 @@
             this.comboBox7.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Location = new System.Drawing.Point(237, 42);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(140, 29);
             this.comboBox7.TabIndex = 18;
@@ -760,7 +762,7 @@
             this.comboBox6.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(249, 150);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(183, 29);
             this.comboBox6.TabIndex = 17;
@@ -770,7 +772,7 @@
             this.comboBox5.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(94, 295);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(250, 29);
             this.comboBox5.TabIndex = 16;
@@ -790,7 +792,7 @@
             this.comboBox4.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(10, 94);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(196, 29);
             this.comboBox4.TabIndex = 14;
@@ -810,7 +812,7 @@
             this.comboBox3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(249, 94);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(183, 29);
             this.comboBox3.TabIndex = 12;
@@ -829,7 +831,7 @@
             // 
             this.maskedTextBox2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.maskedTextBox2.Location = new System.Drawing.Point(9, 152);
-            this.maskedTextBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.maskedTextBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.maskedTextBox2.Mask = "0-000-999-00-00";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(196, 29);
@@ -853,7 +855,7 @@
             this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(249, 40);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(183, 29);
             this.comboBox2.TabIndex = 8;
@@ -924,12 +926,12 @@
             this.Column6});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 33;
-            this.dataGridView2.Size = new System.Drawing.Size(347, 550);
+            this.dataGridView2.Size = new System.Drawing.Size(349, 550);
             this.dataGridView2.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -987,7 +989,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(985, 550);
+            this.panel1.Size = new System.Drawing.Size(987, 550);
             this.panel1.TabIndex = 0;
             this.panel1.Visible = false;
             // 
@@ -1015,7 +1017,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listBox1);
             this.splitContainer2.Panel2MinSize = 0;
-            this.splitContainer2.Size = new System.Drawing.Size(985, 550);
+            this.splitContainer2.Size = new System.Drawing.Size(987, 550);
             this.splitContainer2.SplitterDistance = 524;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -1175,7 +1177,7 @@
             this.listBox1.ItemHeight = 19;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(457, 550);
+            this.listBox1.Size = new System.Drawing.Size(459, 550);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -1186,7 +1188,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(985, 550);
+            this.panel2.Size = new System.Drawing.Size(987, 550);
             this.panel2.TabIndex = 1;
             this.panel2.Visible = false;
             // 
@@ -1212,15 +1214,15 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer3.Panel2MinSize = 0;
-            this.splitContainer3.Size = new System.Drawing.Size(985, 550);
-            this.splitContainer3.SplitterDistance = 461;
+            this.splitContainer3.Size = new System.Drawing.Size(987, 550);
+            this.splitContainer3.SplitterDistance = 460;
             this.splitContainer3.TabIndex = 0;
             // 
             // maskedTextBox1
             // 
             this.maskedTextBox1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.maskedTextBox1.Location = new System.Drawing.Point(47, 115);
-            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.maskedTextBox1.Mask = "0-000-999-00-00";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(196, 29);
@@ -1244,7 +1246,7 @@
             this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(47, 286);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(183, 29);
             this.comboBox1.TabIndex = 8;
@@ -1311,12 +1313,12 @@
             this.Column2});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(520, 550);
+            this.dataGridView1.Size = new System.Drawing.Size(523, 550);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -1335,6 +1337,18 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 150;
             // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.Teal;
+            this.button20.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button20.ForeColor = System.Drawing.Color.Transparent;
+            this.button20.Location = new System.Drawing.Point(87, 476);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(328, 36);
+            this.button20.TabIndex = 30;
+            this.button20.Text = "Экспортировать таблицу в WORD и EXCEL";
+            this.button20.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1342,7 +1356,7 @@
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(1274, 550);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Помощник Диспетчеру";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1490,5 +1504,6 @@
         private ComboBox comboBox10;
         private Button button19;
         private Label label22;
+        private Button button20;
     }
 }

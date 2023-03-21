@@ -43,8 +43,11 @@ namespace MCHSAutoTable
         //ЕДДС
         private void button1_Click(object sender, EventArgs e)
         {
-            workingDB.clearRowInTableEDDS();
-            listBox1.Items.Clear();
+            //workingDB.clearRowInTableEDDS();
+            //listBox1.Items.Clear();
+
+            InputDataWordExcel inputDataWordExcel = new InputDataWordExcel();
+            inputDataWordExcel.createTableExcelPatients();
 
             //Загрузка в список
             if (dataEDDS.Count > 0)
@@ -336,6 +339,7 @@ namespace MCHSAutoTable
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
+            panel6.Visible = false;
 
             button1.BackColor = Color.ForestGreen;
             button2.BackColor = Color.ForestGreen;
@@ -471,8 +475,7 @@ namespace MCHSAutoTable
         {
             string search = textBox9.Text;
             int index = listBox2.FindString(search);
-            listBox2.SelectedIndex = index;
-        
+            listBox2.SelectedIndex = index; 
         }
 
         //Открытие панели для добавление Диагноза
@@ -547,9 +550,7 @@ namespace MCHSAutoTable
                 updateTablePatient();
             }
             else
-                MessageBox.Show("Данный пациент уже существует!");
-
-            
+                MessageBox.Show("Данный пациент уже существует!");   
         }
 
         //Удаление Пациента из БД

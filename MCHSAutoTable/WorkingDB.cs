@@ -225,13 +225,13 @@ namespace MCHSAutoTable
                 {
                     dataPatient.Add(new string[11]);
                     dataPatient[i][0] = e.FIO;
-                    dataPatient[i][1] = e.PhoneNumber;
-                    dataPatient[i][2] = e.SubDepartment;
-                    dataPatient[i][3] = e.Position;
-                    dataPatient[i][4] = e.Rank;
-                    dataPatient[i][5] = e.Date;
-                    dataPatient[i][7] = e.Diagnosis;
-                    dataPatient[i][6] = e.Shift;
+                    dataPatient[i][1] = e.Date;
+                    dataPatient[i][2] = e.Diagnosis;
+                    dataPatient[i][3] = e.PhoneNumber;
+                    dataPatient[i][4] = e.SubDepartment;
+                    dataPatient[i][5] = e.Position;
+                    dataPatient[i][6] = e.Rank;
+                    dataPatient[i][7] = e.Shift;
                     dataPatient[i][8] = e.Healing;
                     dataPatient[i][9] = e.Vaccinated;
                     dataPatient[i][10] = Convert.ToString(e.PatientsId);
