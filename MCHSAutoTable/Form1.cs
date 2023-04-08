@@ -43,6 +43,7 @@ namespace MCHSAutoTable
         //ЕДДС
         private void button1_Click(object sender, EventArgs e)
         {
+            //inputData.createTableExcelPatients();
             workingDB.clearRowInTableEDDS();
             listBox1.Items.Clear();
 
@@ -566,6 +567,11 @@ namespace MCHSAutoTable
             {
                 MessageBox.Show("Не выбран элемент для удаления!");
             }         
+        }
+
+        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

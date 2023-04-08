@@ -19,7 +19,8 @@ namespace MCHSAutoTable
 
             //Создание директории
             var thTH = new System.Globalization.CultureInfo("th-TH");
-            string path = dateTime.Year.ToString()+"\\"+dateTime.Month.ToString()+"\\"+date;
+            string path = dateTime.Year.ToString() + "\\" + dateTime.Month.ToString() + "\\" + date;
+
             Directory.CreateDirectory(path);
 
             DocX doc = DocX.Create(path+"\\"+"Минский район_ЕДДС " + date + ".docx");
@@ -81,6 +82,14 @@ namespace MCHSAutoTable
                 return;
             }
 
+            //Получение даты и времени
+            DateTime dateTime = DateTime.Now;
+            string time = dateTime.ToString("HH-mm");
+            string date = dateTime.ToShortDateString();
+            //Создание директории
+            var thTH = new System.Globalization.CultureInfo("th-TH");
+            string path = dateTime.Year.ToString() + "\\" + dateTime.Month.ToString() + "\\" + date;
+            Directory.CreateDirectory(path);
 
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
@@ -89,24 +98,24 @@ namespace MCHSAutoTable
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
-            xlWorkSheet.Cells[1, 1] = "ID";
-            xlWorkSheet.Cells[1, 2] = "Name";
-            xlWorkSheet.Cells[2, 1] = "1";
-            xlWorkSheet.Cells[2, 2] = "One";
-            xlWorkSheet.Cells[3, 1] = "2";
-            xlWorkSheet.Cells[3, 2] = "Two";
+            xlWorkSheet.Cells[1, 1] = "Сведения о работниках, находящихся на больничном 08.30 ежедневно";
+            xlWorkSheet.Cells[2, 1] = "Наименование подразделений";
+            xlWorkSheet.Cells[2, 2] = "по штату";
+            xlWorkSheet.Cells[2, 3] = "больные";
+            xlWorkSheet.Cells[2, 4] = "сменный график работы";
+            xlWorkSheet.Cells[2, 5] = "ежедневный график работы";
+            xlWorkSheet.Cells[2, 6] = "гражданские работники";
+            xlWorkSheet.Cells[2, 7] = "из них";
+            xlWorkSheet.Cells[2, 8] = "руководящий состав подразделений";
 
-
-
-            xlWorkBook.SaveAs("d:\\csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            var fullPath = path + "\\" + "Минский район сведения по больным " + date + ".xls";
+            xlWorkBook.SaveAs(fullPath, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
 
             Marshal.ReleaseComObject(xlWorkSheet);
             Marshal.ReleaseComObject(xlWorkBook);
             Marshal.ReleaseComObject(xlApp);
-
-            MessageBox.Show("Excel file created , you can find the file d:\\csharp-Excel.xls");
         }
     }
 }
