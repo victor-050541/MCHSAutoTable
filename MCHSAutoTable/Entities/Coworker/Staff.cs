@@ -15,13 +15,6 @@ namespace MCHSAutoTable.Entityes.coworker
         public string SubDepatment { get; set; }
         public string Shift { get; set; }
         public string PhoneNumber { get; set; }
-
-    
-        //public int PositionId { get; set; }
-        //public virtual Position Position { get; set; }
-        //public int RankId { get; set; }
-        //public virtual Rank Rank { get; set; }
-
-        //public virtual SubDepartment SubDepartmen { get; set; }        
+        
     }
 }

@@ -1,0 +1,68 @@
+# Visual Studio cache files
+.vs/
+/bin/
+/obj/
+
+# Build results
+[Bb]in/
+[Dd]ebug/
+[Rr]elease/
+
+# NuGet Packages
+## If you have NuGet Package Restore enabled, uncomment the next line
+packages/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Build results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# .NET Core
+*.nuget.props
+*.nuget.targets
+
+# Build output
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Nn][Yy][Cc][Pp][Uu]/
+
+# Test Results
+[Tt]est[Rr]esult*/
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Oo]bj/
+
+# Rider
+.idea/
+*.sln.iml
+
+# ReSharper
+_resharper*/
+*.sln.DotSettings.user
+
+# Roslyn analyzer cache
+.rider/
+.benchmarkdotnet/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Xamarin-specific
+*.apk
+*.ap_
+
+# Build and Release Management
+_build/
+_release/

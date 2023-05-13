@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Victor\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Victor\\.nuget\\packages",
-      "D:\\Other files\\Shared VISUAL\\NuGetPackages"
+      "C:\\Users\\artio\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\artio\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Reflection.NullabilityInfoContext.IsSupported": true,
