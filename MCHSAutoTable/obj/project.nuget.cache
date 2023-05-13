@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "TabrpQh0MS6Qz+wdradmd9qMXPxfTwgoPwL5SdVWarJIYA7Jo6eo3Hz1ybEWAiZWGJAFDi8ULY2QNW+xzZYMFw==",
-  "success": true,
+  "dgSpecHash": "01SiHadCw7t9BfbK8ZXfHmuTi1YyQlxp5kkLTTy7LZOoNGUar4/3tHoma+h6BxvGTFfHIv2LLeCDSdFNOuQu1Q==",
+  "success": false,
   "projectFilePath": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\MCHSAutoTable.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\artio\\.nuget\\packages\\documentformat.openxml\\2.19.0\\documentformat.openxml.2.19.0.nupkg.sha512",
@@ -32,5 +32,24 @@
     "C:\\Users\\artio\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\artio\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Не удалось найти проект \"C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
+      "libraryId": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Не удалось найти проект \"C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Words.NET\\Xceed.Words.NET.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
+      "libraryId": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Words.NET\\Xceed.Words.NET.csproj",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

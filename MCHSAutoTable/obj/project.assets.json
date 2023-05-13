@@ -541,27 +541,6 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
-      },
-      "Xceed.Document.NET/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/Xceed.Document.NET.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Xceed.Document.NET.dll": {}
-        }
-      },
-      "Xceed.Words.NET/1.0.0": {
-        "type": "project",
-        "dependencies": {
-          "Xceed.Document.NET": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Xceed.Words.NET.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Xceed.Words.NET.dll": {}
-        }
       }
     }
   },
@@ -1275,24 +1254,14 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Xceed.Document.NET/1.0.0": {
-      "type": "project",
-      "path": "bin/Debug/net6.0-windows/DocX-master/Xceed.Document.NET/Xceed.Document.NET.csproj",
-      "msbuildProject": "bin/Debug/net6.0-windows/DocX-master/Xceed.Document.NET/Xceed.Document.NET.csproj"
-    },
-    "Xceed.Words.NET/1.0.0": {
-      "type": "project",
-      "path": "bin/Debug/net6.0-windows/DocX-master/Xceed.Words.NET/Xceed.Words.NET.csproj",
-      "msbuildProject": "bin/Debug/net6.0-windows/DocX-master/Xceed.Words.NET/Xceed.Words.NET.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj",
+      "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Words.NET\\Xceed.Words.NET.csproj",
       "DocumentFormat.OpenXml >= 2.19.0",
-      "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.1",
-      "Xceed.Document.NET >= 1.0.0",
-      "Xceed.Words.NET >= 1.0.0"
+      "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.1"
     ]
   },
   "packageFolders": {
@@ -1305,7 +1274,7 @@
       "projectName": "MCHSAutoTable",
       "projectPath": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\MCHSAutoTable.csproj",
       "packagesPath": "C:\\Users\\artio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\artio\\Source\\Repos\\MCHSAutoTable\\MCHSAutoTable\\obj\\",
+      "outputPath": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\artio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1372,5 +1341,25 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Не удалось найти проект \"C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
+      "libraryId": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Не удалось найти проект \"C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Words.NET\\Xceed.Words.NET.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
+      "libraryId": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Words.NET\\Xceed.Words.NET.csproj",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

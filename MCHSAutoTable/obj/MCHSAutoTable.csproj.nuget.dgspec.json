@@ -4,40 +4,6 @@
     "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\MCHSAutoTable.csproj": {}
   },
   "projects": {
-    "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj": {
-      "restore": {
-        "projectUniqueName": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj",
-        "projectName": "Xceed.Document.NET",
-        "projectPath": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj",
-        "frameworks": {
-          "net48": {
-            "projectReferences": {}
-          }
-        }
-      },
-      "frameworks": {
-        "net48": {}
-      }
-    },
-    "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Words.NET\\Xceed.Words.NET.csproj": {
-      "restore": {
-        "projectUniqueName": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Words.NET\\Xceed.Words.NET.csproj",
-        "projectName": "Xceed.Words.NET",
-        "projectPath": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Words.NET\\Xceed.Words.NET.csproj",
-        "frameworks": {
-          "net48": {
-            "projectReferences": {
-              "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj": {
-                "projectPath": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\bin\\Debug\\net6.0-windows\\DocX-master\\Xceed.Document.NET\\Xceed.Document.NET.csproj"
-              }
-            }
-          }
-        }
-      },
-      "frameworks": {
-        "net48": {}
-      }
-    },
     "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\MCHSAutoTable.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -45,7 +11,7 @@
         "projectName": "MCHSAutoTable",
         "projectPath": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\MCHSAutoTable.csproj",
         "packagesPath": "C:\\Users\\artio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\artio\\Source\\Repos\\MCHSAutoTable\\MCHSAutoTable\\obj\\",
+        "outputPath": "C:\\Users\\artio\\source\\repos\\MCHSAutoTable\\MCHSAutoTable\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\artio\\AppData\\Roaming\\NuGet\\NuGet.Config",
