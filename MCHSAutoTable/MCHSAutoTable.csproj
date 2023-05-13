@@ -39,13 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DocumentFormat.OpenXml" Version="2.19.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="bin\Debug\net6.0-windows\DocX-master\Xceed.Document.NET\Xceed.Document.NET.csproj" />
-    <ProjectReference Include="bin\Debug\net6.0-windows\DocX-master\Xceed.Words.NET\Xceed.Words.NET.csproj" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.5" />
+    <PackageReference Include="Xceed.Document.NET" Version="2.5.23177.2123" />
+    <PackageReference Include="Xceed.Words.NET" Version="2.5.23177.2123" />
   </ItemGroup>
 
   <ItemGroup>

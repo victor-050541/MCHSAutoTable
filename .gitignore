@@ -3,6 +3,9 @@
 /bin/
 /obj/
 
+# JetBrains cache files
+.idea
+
 # Build results
 [Bb]in/
 [Dd]ebug/
