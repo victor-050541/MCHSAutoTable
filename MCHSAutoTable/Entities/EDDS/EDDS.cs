@@ -1,15 +1,8 @@
-﻿using DocumentFormat.OpenXml.ExtendedProperties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MCHSAutoTable.Entityes.edds
+﻿namespace MCHSAutoTable.Entities.EDDS
 {
-    public class EDDS
+    public class Edds
     {
-        public int EDDSId{ get; set; }
+        public int EddsId{ get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
     }

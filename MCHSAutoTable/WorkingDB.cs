@@ -1,134 +1,157 @@
-﻿using DocumentFormat.OpenXml.ExtendedProperties;
-using DocumentFormat.OpenXml.InkML;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using MCHSAutoTable.Entityes.coworker;
-using MCHSAutoTable.Entityes.edds;
-using Microsoft.EntityFrameworkCore;
+﻿using MCHSAutoTable.Entities.Coworker;
+using MCHSAutoTable.Entities.EDDS;
+
 
 namespace MCHSAutoTable
 {
-    public class WorkingDB
+    public class WorkingDb
     {
         //Добавление пациента в заболевшие
-        public void addDBPatient(string FIOStaff, string PhoneNumber, string SubDep, string Position, string Rank, string Date,
-            string Diagnosis, string Healing, string Shift, string Vaccinated)
+        public void AddDbPatient(
+            string fioStaff,
+            string phoneNumber,
+            string subDep,
+            string position,
+            string rank,
+            string date,
+            string diagnosis,
+            string healing,
+            string shift,
+            string vaccinated
+        )
         {
             using (ApplicationContext db = new ApplicationContext())
-            {                
-                db.Patients.Add(new Patients { FIO = FIOStaff, PhoneNumber = PhoneNumber, SubDepartment = SubDep, Position = Position, Rank = Rank,
-                    Date = Date, Diagnosis = Diagnosis, Shift = Shift, Healing = Healing, Vaccinated = Vaccinated });                
-                db.SaveChanges();                                
+            {
+                db.Patients.Add(new Patients
+                {
+                    Fio = fioStaff, PhoneNumber = phoneNumber, SubDepartment = subDep, Position = position, Rank = rank,
+                    Date = date, Diagnosis = diagnosis, Shift = shift, Healing = healing, Vaccinated = vaccinated
+                });
+                db.SaveChanges();
             }
         }
 
         //Добавление Диагноза
-        public void addDBDiagnosis(string Name)
+        public void AddDbDiagnosis(string name)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                db.Diagnoses.Add(new Diagnosis { Name = Name });
+                db.Diagnoses.Add(new Diagnosis { Name = name });
                 db.SaveChanges();
             }
         }
 
         //Добавление обзвона ЕДДС по таблице
-        public void addDBTableEDDS(string FIO, string Time, string Working)
+        public void AddDbTableEdds(string fio, string time, string working)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                
-                db.TableEDDS.Add(new TableEDDS { FIO = FIO, Time = Time, Working = Working });                
+                db.TableEdds.Add(new TableEdds { Fio = fio, Time = time, Working = working });
                 db.SaveChanges();
             }
         }
 
         //Добавление ЕДДС
-        public void addDBDepartmentEDDS(string Name, string PhoneNumber)
+        public void AddDbDepartmentEdds(string name, string phoneNumber)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                db.EDDS.Add(new EDDS { Name = Name, PhoneNumber = PhoneNumber});
+                db.Edds.Add(new Edds { Name = name, PhoneNumber = phoneNumber });
                 db.SaveChanges();
             }
         }
 
         //Добавление сотрудника    
-        public void addDBStaff(string FIO, string Position, string SubDep,string PhoneNumber,string Rank, string Shift)
+        public void AddDbStaff(
+            string fio,
+            string position,
+            string subDep,
+            string phoneNumber,
+            string rank,
+            string shift
+        )
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                db.Staffs.Add(new Staff { FIO = FIO, PositionName = Position, SubDepatment = SubDep, Shift = Shift, PhoneNumber = PhoneNumber, Rank = Rank});
+                db.Staffs.Add(new Staff
+                {
+                    Fio = fio, PositionName = position, SubDepatment = subDep, Shift = shift, PhoneNumber = phoneNumber,
+                    Rank = rank
+                });
                 db.SaveChanges();
             }
         }
 
         //Добавление должонсти
-        public void addDBPosition(string Name)
+        public void AddDbPosition(string name)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                db.Positions.Add(new Position { Name = Name});
+                db.Positions.Add(new Position { Name = name });
                 db.SaveChanges();
             }
         }
 
         //Добавление подразделения
-        public void addDBSubDepartment(string Name)
+        public void AddDbSubDepartment(string name)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                db.SubDepartments.Add(new SubDepartment { Name = Name });
+                db.SubDepartments.Add(new SubDepartment { Name = name });
                 db.SaveChanges();
             }
         }
 
         //Получение элементов ведомства ЕДДС из БД
-        public List<String[]> getEDDS()
+        public List<String[]> GetEdds()
         {
-            List<String[]> dataEDDS = new List<String[]>();
+            List<String[]> dataEdds = new List<String[]>();
             int i = 0;
 
             using (ApplicationContext db = new ApplicationContext())
             {
-                var edds = db.EDDS.ToList();
-                foreach (EDDS e in edds)
+                var edds = db.Edds.ToList();
+                foreach (Edds e in edds)
                 {
-                    dataEDDS.Add(new string[3]);
-                    dataEDDS[i][0] = e.Name;
-                    dataEDDS[i][1] = e.PhoneNumber;
-                    dataEDDS[i][2] = Convert.ToString(e.EDDSId);
+                    dataEdds.Add(new string[3]);
+                    dataEdds[i][0] = e.Name;
+                    dataEdds[i][1] = e.PhoneNumber;
+                    dataEdds[i][2] = Convert.ToString(e.EddsId);
                     i++;
                 }
-                return dataEDDS;
-            }            
+
+                return dataEdds;
+            }
         }
 
         //Получение данных из таблицы TableEDDS для вывода в WORD
-        public List<String[]> getTableEDDS()
+        public List<String[]> GetTableEdds()
         {
-            List<String[]> dataEDDS = new List<String[]>();
+            List<String[]> dataEdds = new List<String[]>();
             int i = 0;
 
             using (ApplicationContext db = new ApplicationContext())
             {
-                var edds = db.TableEDDS.ToList();
-                foreach (TableEDDS e in edds)
+                var edds = db.TableEdds.ToList();
+                foreach (TableEdds e in edds)
                 {
-                    dataEDDS.Add(new string[5]);
-                    dataEDDS[i][0] = e.Time;
-                    dataEDDS[i][1] = getEDDS()[i][0];
-                    dataEDDS[i][2] = e.Working;
-                    dataEDDS[i][3] = e.FIO;
-                    dataEDDS[i][4] = getEDDS()[i][1]; ;
-                    
+                    dataEdds.Add(new string[5]);
+                    dataEdds[i][0] = e.Time;
+                    dataEdds[i][1] = GetEdds()[i][0];
+                    dataEdds[i][2] = e.Working;
+                    dataEdds[i][3] = e.Fio;
+                    dataEdds[i][4] = GetEdds()[i][1];
+                    ;
+
                     i++;
                 }
-                return dataEDDS;
+
+                return dataEdds;
             }
         }
 
         //Получение данных из таблицы Position
-        public List<String[]> getPosition()
+        public List<String[]> GetPosition()
         {
             List<String[]> dataPosition = new List<String[]>();
             int i = 0;
@@ -143,12 +166,13 @@ namespace MCHSAutoTable
                     dataPosition[i][1] = Convert.ToString(e.PositionId);
                     i++;
                 }
+
                 return dataPosition;
             }
         }
 
         //Получение данных из таблицы SubDepatment
-        public List<String[]> getSubDepartment()
+        public List<String[]> GetSubDepartment()
         {
             List<String[]> dataSubDepartment = new List<String[]>();
             int i = 0;
@@ -163,12 +187,13 @@ namespace MCHSAutoTable
                     dataSubDepartment[i][1] = Convert.ToString(e.SubDepartmentId);
                     i++;
                 }
+
                 return dataSubDepartment;
             }
         }
 
         //Получение данных из таблицы SubDepatment
-        public List<String[]> getDiagnosis()
+        public List<String[]> GetDiagnosis()
         {
             List<String[]> dataDiagnosis = new List<String[]>();
             int i = 0;
@@ -183,12 +208,13 @@ namespace MCHSAutoTable
                     dataDiagnosis[i][1] = Convert.ToString(e.DiagnosisId);
                     i++;
                 }
+
                 return dataDiagnosis;
             }
         }
 
         //Получение данных из таблицы Staff
-        public List<String[]> getStaff()
+        public List<String[]> GetStaff()
         {
             List<String[]> dataStaff = new List<String[]>();
             int i = 0;
@@ -199,7 +225,7 @@ namespace MCHSAutoTable
                 foreach (Staff e in staff)
                 {
                     dataStaff.Add(new string[7]);
-                    dataStaff[i][0] = e.FIO;
+                    dataStaff[i][0] = e.Fio;
                     dataStaff[i][1] = e.PositionName;
                     dataStaff[i][2] = e.Rank;
                     dataStaff[i][3] = e.SubDepatment;
@@ -208,12 +234,13 @@ namespace MCHSAutoTable
                     dataStaff[i][6] = Convert.ToString(e.StaffId);
                     i++;
                 }
+
                 return dataStaff;
             }
         }
 
         //Получение данных из таблицы Patient
-        public List<String[]> getPatients()
+        public List<String[]> GetPatients()
         {
             List<String[]> dataPatient = new List<String[]>();
             int i = 0;
@@ -224,7 +251,7 @@ namespace MCHSAutoTable
                 foreach (Patients e in patients)
                 {
                     dataPatient.Add(new string[11]);
-                    dataPatient[i][0] = e.FIO;
+                    dataPatient[i][0] = e.Fio;
                     dataPatient[i][1] = e.Date;
                     dataPatient[i][2] = e.Diagnosis;
                     dataPatient[i][3] = e.PhoneNumber;
@@ -237,39 +264,40 @@ namespace MCHSAutoTable
                     dataPatient[i][10] = Convert.ToString(e.PatientsId);
                     i++;
                 }
+
                 return dataPatient;
             }
         }
 
         //Удаление всех записей в таблице TableEDDS
-        public void clearRowInTableEDDS()
+        public void ClearRowInTableEdds()
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                db.TableEDDS.RemoveRange(db.TableEDDS);
+                db.TableEdds.RemoveRange(db.TableEdds);
                 db.SaveChanges();
             }
         }
 
-        
+
         //Удаление ведомство ЕДДС из БД
-        public void deleteEDDS(string IdEDDS)
+        public void DeleteEdds(string idEdds)
         {
             using (ApplicationContext db = new ApplicationContext())
-            {                
-                EDDS edds = new EDDS() { EDDSId = Convert.ToInt32(IdEDDS)};
-                db.EDDS.Attach(edds);
-                db.EDDS.Remove(edds);
+            {
+                Edds edds = new Edds() { EddsId = Convert.ToInt32(idEdds) };
+                db.Edds.Attach(edds);
+                db.Edds.Remove(edds);
                 db.SaveChanges();
             }
         }
 
         //Удаление сотрудника из БД
-        public void deleteStaff(string IdStaff)
+        public void DeleteStaff(string idStaff)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                Staff staff = new Staff() { StaffId = Convert.ToInt32(IdStaff) };
+                Staff staff = new Staff() { StaffId = Convert.ToInt32(idStaff) };
                 db.Staffs.Attach(staff);
                 db.Staffs.Remove(staff);
                 db.SaveChanges();
@@ -277,11 +305,11 @@ namespace MCHSAutoTable
         }
 
         //Удаление подразделения из БД
-        public void deleteSubDep(string IdDep)
+        public void DeleteSubDep(string idDep)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                SubDepartment subDep = new SubDepartment() { SubDepartmentId = Convert.ToInt32(IdDep) };
+                SubDepartment subDep = new SubDepartment() { SubDepartmentId = Convert.ToInt32(idDep) };
                 db.SubDepartments.Attach(subDep);
                 db.SubDepartments.Remove(subDep);
                 db.SaveChanges();
@@ -289,11 +317,11 @@ namespace MCHSAutoTable
         }
 
         //Удаление должности из БД
-        public void deletePosition(string IdPos)
+        public void DeletePosition(string idPos)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                Position pos = new Position() { PositionId = Convert.ToInt32(IdPos) };
+                Position pos = new Position() { PositionId = Convert.ToInt32(idPos) };
                 db.Positions.Attach(pos);
                 db.Positions.Remove(pos);
                 db.SaveChanges();
@@ -301,11 +329,11 @@ namespace MCHSAutoTable
         }
 
         //Удаление заболевания из БД
-        public void deleteDiagnosis(string IdDiagnosis)
+        public void DeleteDiagnosis(string idDiagnosis)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                Diagnosis diagnosis = new Diagnosis() { DiagnosisId = Convert.ToInt32(IdDiagnosis) };
+                Diagnosis diagnosis = new Diagnosis() { DiagnosisId = Convert.ToInt32(idDiagnosis) };
                 db.Diagnoses.Attach(diagnosis);
                 db.Diagnoses.Remove(diagnosis);
                 db.SaveChanges();
@@ -313,11 +341,11 @@ namespace MCHSAutoTable
         }
 
         //Удаление пациента из БД
-        public void deletePatient(string IdPatient)
+        public void DeletePatient(string idPatient)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                Patients patients = new Patients() { PatientsId = Convert.ToInt32(IdPatient) };
+                Patients patients = new Patients() { PatientsId = Convert.ToInt32(idPatient) };
                 db.Patients.Attach(patients);
                 db.Patients.Remove(patients);
                 db.SaveChanges();

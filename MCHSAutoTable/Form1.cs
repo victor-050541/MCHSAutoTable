@@ -1,17 +1,3 @@
-using DocumentFormat.OpenXml.Drawing.Charts;
-using DocumentFormat.OpenXml.Office.CustomUI;
-using DocumentFormat.OpenXml.Spreadsheet;
-using DocumentFormat.OpenXml.Vml;
-using MCHSAutoTable.Entityes;
-using MCHSAutoTable.Entityes.coworker;
-using MCHSAutoTable.Entityes.edds;
-using Microsoft.Office.Interop.Word;
-using Microsoft.VisualBasic.ApplicationServices;
-using System.Reflection.Emit;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 using Button = System.Windows.Forms.Button;
 using Color = System.Drawing.Color;
 
@@ -23,46 +9,46 @@ namespace MCHSAutoTable
         {
             InitializeComponent();
 
-            dataEDDS = workingDB.getEDDS();            
+            _dataEdds = _workingDb.GetEdds();            
         }
 
         //Статус кнопок для изменения цвета и закрытия панелей
-        byte btn1Status = 0;
-        byte btn2Status = 0;
-        byte btn3Status = 0;
-        byte btn4Status = 0;
+        byte _btn1Status = 0;
+        byte _btn2Status = 0;
+        byte _btn3Status = 0;
+        byte _btn4Status = 0;
 
-        int indexDataEDDS = 0;
+        int _indexDataEdds = 0;
 
         //Для работы с БД
-        WorkingDB workingDB = new WorkingDB();
+        WorkingDb _workingDb = new WorkingDb();
 
         //Вывод информации из БД в WORD или Excel
-        InputDataWordExcel inputData = new InputDataWordExcel();
+        InputDataWordExcel _inputData = new InputDataWordExcel();
 
         //ЕДДС
         private void button1_Click(object sender, EventArgs e)
         {
             //inputData.createTableExcelPatients();
-            workingDB.clearRowInTableEDDS();
+            _workingDb.ClearRowInTableEdds();
             listBox1.Items.Clear();
 
             //InputDataWordExcel inputDataWordExcel = new InputDataWordExcel();
             //inputDataWordExcel.createTableExcelPatients();
 
             //Загрузка в список
-            if (dataEDDS.Count > 0)
+            if (_dataEdds.Count > 0)
             {
-                dataEDDS = workingDB.getEDDS();
-                label3.Text = "Номер телефона: " + dataEDDS[indexDataEDDS][1];
-                foreach (string[] s in dataEDDS)
+                _dataEdds = _workingDb.GetEdds();
+                label3.Text = "Номер телефона: " + _dataEdds[_indexDataEdds][1];
+                foreach (string[] s in _dataEdds)
                 {
                     listBox1.Items.Add(s[0]);
                 }
                 radioButton1.Checked = true;
                 listBox1.SetSelected(0, true);
 
-                btn1Status = buttonColorAndOpenPanel(button1, btn1Status, panel1);
+                _btn1Status = ButtonColorAndOpenPanel(button1, _btn1Status, panel1);
             }
             else
                 MessageBox.Show("Заполните данные в разделе Ведомства ЕДДС");
@@ -72,19 +58,19 @@ namespace MCHSAutoTable
         private void button2_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
-            updateDataStaff();
-            updateDataDiagnosis();
-            updateTablePatient();
-            btn2Status = buttonColorAndOpenPanel(button2, btn2Status, panel6);
+            UpdateDataStaff();
+            UpdateDataDiagnosis();
+            UpdateTablePatient();
+            _btn2Status = ButtonColorAndOpenPanel(button2, _btn2Status, panel6);
         }        
         
         //Ведомства ЕДДС
         private void button4_Click(object sender, EventArgs e)
         {
-            btn3Status = buttonColorAndOpenPanel(button4, btn3Status, panel2);
+            _btn3Status = ButtonColorAndOpenPanel(button4, _btn3Status, panel2);
 
             //Обновление БД
-            updateTableEDDS();
+            UpdateTableEdds();
         }
 
         //Работники
@@ -94,11 +80,11 @@ namespace MCHSAutoTable
             comboBox4.Items.Clear();
             comboBox5.Items.Clear();
 
-            updateDataPosition();
-            updateDataSubDepartment();
-            updateDataStaff();
+            UpdateDataPosition();
+            UpdateDataSubDepartment();
+            UpdateDataStaff();
 
-            btn4Status = buttonColorAndOpenPanel(button6, btn4Status, panel3);
+            _btn4Status = ButtonColorAndOpenPanel(button6, _btn4Status, panel3);
             List<String> listRank = new List<String>() { "рядовой", "мл. сержант", "сержант", "ст. сержант", "старшина",
              "прапорщик", "ст. прапорщик", "мл. лейтенант", "лейтенант", "ст. лейтенант", "капитан", "майор", "подполковник", "полковник"};
 
@@ -109,21 +95,21 @@ namespace MCHSAutoTable
         }        
 
         //Обновление таблицы ведомства ЕДДС
-        List<string[]> dataEDDS = new List<string[]>();
-        void updateTableEDDS()
+        List<string[]> _dataEdds = new List<string[]>();
+        void UpdateTableEdds()
         {            
             dataGridView1.Rows.Clear();
-            dataEDDS.Clear();
+            _dataEdds.Clear();
             comboBox1.Items.Clear();
             comboBox1.ResetText();
             textBox4.Clear();
             maskedTextBox1.Clear();            
 
-            dataEDDS = workingDB.getEDDS();
+            _dataEdds = _workingDb.GetEdds();
 
-            if (dataEDDS.Count > 0)
+            if (_dataEdds.Count > 0)
             {                
-                foreach (string[] s in dataEDDS)
+                foreach (string[] s in _dataEdds)
                 {
                     dataGridView1.Rows.Add(s);
                     comboBox1.Items.Add(s[0]);
@@ -132,17 +118,17 @@ namespace MCHSAutoTable
         }
 
         //Обновление таблицы ведомства ЕДДС
-        List<string[]> dataPatients = new List<string[]>();
-        void updateTablePatient()
+        List<string[]> _dataPatients = new List<string[]>();
+        void UpdateTablePatient()
         {
             dataGridView3.Rows.Clear();
             comboBox10.Items.Clear();
 
-            dataPatients = workingDB.getPatients();
+            _dataPatients = _workingDb.GetPatients();
 
-            if (dataPatients.Count > 0)
+            if (_dataPatients.Count > 0)
             {
-                foreach (string[] s in dataPatients)
+                foreach (string[] s in _dataPatients)
                 {
                     dataGridView3.Rows.Add(s);
                     comboBox10.Items.Add(s[0]);
@@ -151,17 +137,17 @@ namespace MCHSAutoTable
         }
 
         //Обновление checkBox с должностями
-        List<string[]> dataPosition = new List<string[]>();
-        void updateDataPosition()
+        List<string[]> _dataPosition = new List<string[]>();
+        void UpdateDataPosition()
         {
-            dataPosition = workingDB.getPosition();
+            _dataPosition = _workingDb.GetPosition();
 
             comboBox2.Items.Clear();
             comboBox7.Items.Clear();
 
-            if (dataPosition.Count > 0)
+            if (_dataPosition.Count > 0)
             {
-                foreach (string[] s in dataPosition)
+                foreach (string[] s in _dataPosition)
                 {
                     comboBox2.Items.Add(s[0]);
                     comboBox7.Items.Add(s[0]);
@@ -170,17 +156,17 @@ namespace MCHSAutoTable
         }
 
         //Обновление checkBox с подразделениями
-        List<string[]> dataSubDep = new List<string[]>();
-        void updateDataSubDepartment()
+        List<string[]> _dataSubDep = new List<string[]>();
+        void UpdateDataSubDepartment()
         {
-            dataSubDep = workingDB.getSubDepartment();
+            _dataSubDep = _workingDb.GetSubDepartment();
 
             comboBox4.Items.Clear();
             comboBox7.Items.Clear();
 
-            if (dataSubDep.Count > 0)
+            if (_dataSubDep.Count > 0)
             {
-                foreach (string[] s in dataSubDep)
+                foreach (string[] s in _dataSubDep)
                 {
                     comboBox4.Items.Add(s[0]);
                     comboBox7.Items.Add(s[0]);
@@ -189,16 +175,16 @@ namespace MCHSAutoTable
         }
 
         //Обновление checkBox с сотрудниками
-        List<string[]> dataStaff = new List<string[]>();
-        void updateDataStaff()
+        List<string[]> _dataStaff = new List<string[]>();
+        void UpdateDataStaff()
         {
             dataGridView2.Rows.Clear();
             comboBox5.Items.Clear();
-            dataStaff = workingDB.getStaff();
+            _dataStaff = _workingDb.GetStaff();
 
-            if (dataStaff.Count > 0)
+            if (_dataStaff.Count > 0)
             {
-                foreach (string[] s in dataStaff)
+                foreach (string[] s in _dataStaff)
                 {
                     dataGridView2.Rows.Add(s);
                     comboBox5.Items.Add(s[0]);
@@ -208,17 +194,17 @@ namespace MCHSAutoTable
         }
 
         //Обновление checkBox с Болезнями
-        List<string[]> dataDiagnosis = new List<string[]>();
-        void updateDataDiagnosis()
+        List<string[]> _dataDiagnosis = new List<string[]>();
+        void UpdateDataDiagnosis()
         {
-            dataDiagnosis = workingDB.getDiagnosis();
+            _dataDiagnosis = _workingDb.GetDiagnosis();
 
             comboBox8.Items.Clear();
             comboBox9.Items.Clear();
 
-            if (dataDiagnosis.Count > 0)
+            if (_dataDiagnosis.Count > 0)
             {
-                foreach (string[] s in dataDiagnosis)
+                foreach (string[] s in _dataDiagnosis)
                 {
                     comboBox8.Items.Add(s[0]);
                     comboBox9.Items.Add(s[0]);
@@ -231,8 +217,8 @@ namespace MCHSAutoTable
         {
             string name = textBox4.Text;
             string phoneNumber = maskedTextBox1.Text;
-            workingDB.addDBDepartmentEDDS(name, phoneNumber);
-            updateTableEDDS();
+            _workingDb.AddDbDepartmentEdds(name, phoneNumber);
+            UpdateTableEdds();
         }
 
         //Удалить ведомство ЕДДС
@@ -240,8 +226,8 @@ namespace MCHSAutoTable
         {
             if (!(comboBox1.SelectedIndex == -1))
             {                
-                workingDB.deleteEDDS(dataEDDS[comboBox1.SelectedIndex][2]);
-                updateTableEDDS();
+                _workingDb.DeleteEdds(_dataEdds[comboBox1.SelectedIndex][2]);
+                UpdateTableEdds();
             }
             else
             {
@@ -249,7 +235,7 @@ namespace MCHSAutoTable
             }            
         }
 
-        List<string[]> tableDataEDDS = new List<string[]>();
+        List<string[]> _tableDataEdds = new List<string[]>();
         //Добавить в таблицу ЕДДС для вывода
         private void button3_Click(object sender, EventArgs e)
         {                           
@@ -268,18 +254,18 @@ namespace MCHSAutoTable
 
                 if (!textBox2.Text.Equals(""))
                 {                    
-                    label3.Text = "Номер телефона: " + dataEDDS[indexDataEDDS][1];
-                    workingDB.addDBTableEDDS(fedds, time, working);
+                    label3.Text = "Номер телефона: " + _dataEdds[_indexDataEdds][1];
+                    _workingDb.AddDbTableEdds(fedds, time, working);
 
                     textBox2.Clear();
 
-                    if (dataEDDS.Count() - 1 != listBox1.SelectedIndex)
+                    if (_dataEdds.Count() - 1 != listBox1.SelectedIndex)
                     {
                         listBox1.SelectedIndex += 1;
                     }
                     else
                     {
-                        btn1Status = 0;
+                        _btn1Status = 0;
                         button1.BackColor = Color.ForestGreen;
 
                         button3.Enabled = false;
@@ -295,9 +281,9 @@ namespace MCHSAutoTable
         //Кнопка завершить и сохранить данные в БД ЕДДС
         private void button13_Click(object sender, EventArgs e)
         {
-            tableDataEDDS = workingDB.getTableEDDS();
+            _tableDataEdds = _workingDb.GetTableEdds();
             //Вывод в WORD
-            inputData.createTableWordEDDS(textBox6.Text, tableDataEDDS);
+            InputDataWordExcel.CreateTableWordEdds(textBox6.Text, _tableDataEdds);
             panel1.Hide();
             button3.Enabled = true;
             panel5.Visible = false;
@@ -306,11 +292,11 @@ namespace MCHSAutoTable
         }
 
         //Смена цвета для кнопок МЕНЮ
-        byte buttonColorAndOpenPanel(Button button, byte btn, Panel panel)
+        byte ButtonColorAndOpenPanel(Button button, byte btn, Panel panel)
         {
             if (btn == 0)
             {
-                invisibleAllPanel();
+                InvisibleAllPanel();
                 button.BackColor = Color.DarkSlateGray;
                 panel.Visible = true;
             }
@@ -330,12 +316,12 @@ namespace MCHSAutoTable
             string time = dateTime.ToString("HH-mm");
             textBox1.Text = time;
 
-            string phoneNumberTable = dataEDDS[listBox1.SelectedIndex][1];
+            string phoneNumberTable = _dataEdds[listBox1.SelectedIndex][1];
             label3.Text = "Номер телефона: " + phoneNumberTable;
         }
 
         //Скрытие всех панелей и кнопок МЕНЮ
-        void invisibleAllPanel()
+        void InvisibleAllPanel()
         {
             panel1.Visible = false;
             panel2.Visible = false;
@@ -347,28 +333,28 @@ namespace MCHSAutoTable
             button4.BackColor = Color.ForestGreen;
             button6.BackColor = Color.ForestGreen;
 
-            btn1Status = 0;
-            btn2Status = 0;
-            btn3Status = 0;
-            btn4Status = 0;
+            _btn1Status = 0;
+            _btn2Status = 0;
+            _btn3Status = 0;
+            _btn4Status = 0;
         }
 
-        int indexDataDBWorkStaff = 0;
+        int _indexDataDbWorkStaff = 0;
         //Смена информации в Панели в разделе Работники
-        public void messageBoxAddData(int paramSwitch)
+        public void MessageBoxAddData(int paramSwitch)
         {
             switch (paramSwitch)
             {
                 case 0:
                     label15.Text = "Добавление должности";
-                    indexDataDBWorkStaff = 1;
-                    updateDataPosition();
+                    _indexDataDbWorkStaff = 1;
+                    UpdateDataPosition();
                     panel4.Visible = true;
                     break;
                 case 1:
                     label15.Text = "Добавление подразделения";
-                    indexDataDBWorkStaff = 0;
-                    updateDataSubDepartment();
+                    _indexDataDbWorkStaff = 0;
+                    UpdateDataSubDepartment();
                     panel4.Visible = true;
                     break;
             }
@@ -376,27 +362,27 @@ namespace MCHSAutoTable
 
         private void button11_Click(object sender, EventArgs e)
         {
-            messageBoxAddData(0);
+            MessageBoxAddData(0);
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            messageBoxAddData(1);
+            MessageBoxAddData(1);
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            if (indexDataDBWorkStaff == 1)
+            if (_indexDataDbWorkStaff == 1)
             {
-                workingDB.addDBPosition(textBox5.Text);
+                _workingDb.AddDbPosition(textBox5.Text);
                 comboBox2.Items.Clear();
-                updateDataPosition();
+                UpdateDataPosition();
             }
             else
             {
-                workingDB.addDBSubDepartment(textBox5.Text);
+                _workingDb.AddDbSubDepartment(textBox5.Text);
                 comboBox4.Items.Clear();
-                updateDataSubDepartment();
+                UpdateDataSubDepartment();
             }
             panel4.Visible = false;
             textBox5.Clear();
@@ -414,7 +400,7 @@ namespace MCHSAutoTable
         {
             if (!(textBox3.Text.Equals("") || comboBox2.Text.Equals("") || comboBox4.Text.Equals("") || maskedTextBox2.Text.Equals("") || comboBox3.Text.Equals("") || comboBox6.Text.Equals("")))
             {
-                workingDB.addDBStaff(textBox3.Text, comboBox2.Text, comboBox4.Text, maskedTextBox2.Text, comboBox3.Text, comboBox6.Text);
+                _workingDb.AddDbStaff(textBox3.Text, comboBox2.Text, comboBox4.Text, maskedTextBox2.Text, comboBox3.Text, comboBox6.Text);
 
                 textBox3.Clear();
                 comboBox2.Text = "";
@@ -423,7 +409,7 @@ namespace MCHSAutoTable
                 comboBox3.Text = "";
                 comboBox6.Text = "";
 
-                updateDataStaff();
+                UpdateDataStaff();
             }
             else
             {
@@ -437,8 +423,8 @@ namespace MCHSAutoTable
         {
             if (!(comboBox5.SelectedIndex == -1))
             {
-                workingDB.deleteStaff(dataStaff[comboBox5.SelectedIndex][6]);
-                updateDataStaff();
+                _workingDb.DeleteStaff(_dataStaff[comboBox5.SelectedIndex][6]);
+                UpdateDataStaff();
             }
             else
             {
@@ -451,15 +437,15 @@ namespace MCHSAutoTable
         {
             if (!(comboBox7.SelectedIndex == -1))
             {
-                if (indexDataDBWorkStaff == 1)
+                if (_indexDataDbWorkStaff == 1)
                 {
-                    workingDB.deletePosition(dataPosition[comboBox7.SelectedIndex][1]);
-                    updateDataPosition();
+                    _workingDb.DeletePosition(_dataPosition[comboBox7.SelectedIndex][1]);
+                    UpdateDataPosition();
                 }
                 else
                 {
-                    workingDB.deleteSubDep(dataSubDep[comboBox7.SelectedIndex][1]);
-                    updateDataSubDepartment();
+                    _workingDb.DeleteSubDep(_dataSubDep[comboBox7.SelectedIndex][1]);
+                    UpdateDataSubDepartment();
                 }
 
                 panel4.Visible = false;
@@ -482,15 +468,15 @@ namespace MCHSAutoTable
         //Открытие панели для добавление Диагноза
         private void button15_Click(object sender, EventArgs e)
         {
-            updateDataDiagnosis();
+            UpdateDataDiagnosis();
             panel7.Visible = true;
         }
 
         //Добавление Диагноза в БД
         private void button18_Click(object sender, EventArgs e)
         {
-            workingDB.addDBDiagnosis(textBox7.Text);
-            updateDataDiagnosis();
+            _workingDb.AddDbDiagnosis(textBox7.Text);
+            UpdateDataDiagnosis();
 
             textBox7.Clear();
             comboBox9.Items.Clear();
@@ -502,8 +488,8 @@ namespace MCHSAutoTable
         {
             if (!(comboBox9.SelectedIndex == -1))
             {
-                workingDB.deleteDiagnosis(dataDiagnosis[comboBox9.SelectedIndex][1]);
-                updateDataDiagnosis();
+                _workingDb.DeleteDiagnosis(_dataDiagnosis[comboBox9.SelectedIndex][1]);
+                UpdateDataDiagnosis();
                 panel7.Visible = false;
             }
             else
@@ -523,22 +509,22 @@ namespace MCHSAutoTable
         //Добавление Пациента
         private void button16_Click(object sender, EventArgs e)
         {
-            string FIOStaff = dataStaff[listBox2.SelectedIndex][0];
-            string phoneNumber = dataStaff[listBox2.SelectedIndex][5];
-            string subDep = dataStaff[listBox2.SelectedIndex][3];
-            string position = dataStaff[listBox2.SelectedIndex][1];
-            string rank = dataStaff[listBox2.SelectedIndex][2];
-            string shift = dataStaff[listBox2.SelectedIndex][4];
+            string fioStaff = _dataStaff[listBox2.SelectedIndex][0];
+            string phoneNumber = _dataStaff[listBox2.SelectedIndex][5];
+            string subDep = _dataStaff[listBox2.SelectedIndex][3];
+            string position = _dataStaff[listBox2.SelectedIndex][1];
+            string rank = _dataStaff[listBox2.SelectedIndex][2];
+            string shift = _dataStaff[listBox2.SelectedIndex][4];
             string date = dateTimePicker1.Value.ToShortDateString();
             string diagnosis = comboBox8.Text;
             string healing = radioButton4.Checked ? "амбулаторное" : "стационарное";
             string vaccinated = checkBox1.Checked ? "+" : "-";
 
-            List<string[]> nameFIO = workingDB.getPatients();
+            List<string[]> nameFio = _workingDb.GetPatients();
 
-            if (!(nameFIO.Equals(dataStaff[listBox2.SelectedIndex][0])))
+            if (!(nameFio.Equals(_dataStaff[listBox2.SelectedIndex][0])))
             {
-                workingDB.addDBPatient(FIOStaff, phoneNumber, subDep, position,  rank,  date,
+                _workingDb.AddDbPatient(fioStaff, phoneNumber, subDep, position,  rank,  date,
             diagnosis, healing, shift, vaccinated);
 
                 textBox9.Clear();
@@ -548,7 +534,7 @@ namespace MCHSAutoTable
                 radioButton4.Checked = false;
                 checkBox1.Checked = false;
 
-                updateTablePatient();
+                UpdateTablePatient();
             }
             else
                 MessageBox.Show("Данный пациент уже существует!");   
@@ -559,9 +545,9 @@ namespace MCHSAutoTable
         {
             if (!(comboBox10.SelectedIndex == -1))
             {
-                workingDB.deletePatient(dataPatients[comboBox10.SelectedIndex][10]);
+                _workingDb.DeletePatient(_dataPatients[comboBox10.SelectedIndex][10]);
                 comboBox10.Items.Clear();
-                updateTablePatient();
+                UpdateTablePatient();
             }
             else
             {

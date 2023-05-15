@@ -1,20 +1,11 @@
-﻿using DocumentFormat.OpenXml.ExtendedProperties;
-using MCHSAutoTable.Entityes.coworker;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MCHSAutoTable.Entityes.edds
+﻿namespace MCHSAutoTable.Entities.EDDS
 {
-    public class TableEDDS
+    public class TableEdds
     {
-        public int TableEDDSId { get; set; }
+        public int TableEddsId { get; set; }
         public string Time { get; set; }
-        public int EDDSId { get; set; }
-        public string FIO { get; set; }
+        public int EddsId { get; set; }
+        public string Fio { get; set; }
               
         public string Working { get; set; }
         

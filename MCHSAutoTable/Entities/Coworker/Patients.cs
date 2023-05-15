@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MCHSAutoTable.Entityes.coworker
+﻿namespace MCHSAutoTable.Entities.Coworker
 {
     public class Patients
     {
         public int PatientsId { get; set; }
-        public string FIO { get; set; }
+        public string Fio { get; set; }
         public string PhoneNumber { get; set; }
         public string SubDepartment { get; set; }
         public string Position { get; set; }
