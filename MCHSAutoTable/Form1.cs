@@ -9,7 +9,7 @@ namespace MCHSAutoTable
         {
             InitializeComponent();
 
-            _dataEdds = _workingDb.GetEdds();            
+            _dataEdds = _workingDb.GetEdds();
         }
 
         //Статус кнопок для изменения цвета и закрытия панелей
@@ -45,6 +45,7 @@ namespace MCHSAutoTable
                 {
                     listBox1.Items.Add(s[0]);
                 }
+
                 radioButton1.Checked = true;
                 listBox1.SetSelected(0, true);
 
@@ -62,8 +63,8 @@ namespace MCHSAutoTable
             UpdateDataDiagnosis();
             UpdateTablePatient();
             _btn2Status = ButtonColorAndOpenPanel(button2, _btn2Status, panel6);
-        }        
-        
+        }
+
         //Ведомства ЕДДС
         private void button4_Click(object sender, EventArgs e)
         {
@@ -85,40 +86,46 @@ namespace MCHSAutoTable
             UpdateDataStaff();
 
             _btn4Status = ButtonColorAndOpenPanel(button6, _btn4Status, panel3);
-            List<String> listRank = new List<String>() { "рядовой", "мл. сержант", "сержант", "ст. сержант", "старшина",
-             "прапорщик", "ст. прапорщик", "мл. лейтенант", "лейтенант", "ст. лейтенант", "капитан", "майор", "подполковник", "полковник"};
+            List<String> listRank = new List<String>()
+            {
+                "рядовой", "мл. сержант", "сержант", "ст. сержант", "старшина",
+                "прапорщик", "ст. прапорщик", "мл. лейтенант", "лейтенант", "ст. лейтенант", "капитан", "майор",
+                "подполковник", "полковник"
+            };
 
-            List<String> listShift = new List<String>() { "-", "1", "2", "3"};
+            List<String> listShift = new List<String>() { "-", "1", "2", "3" };
 
             comboBox6.DataSource = listShift;
             comboBox3.DataSource = listRank;
-        }        
+        }
 
         //Обновление таблицы ведомства ЕДДС
         List<string[]> _dataEdds = new List<string[]>();
+
         void UpdateTableEdds()
-        {            
+        {
             dataGridView1.Rows.Clear();
             _dataEdds.Clear();
             comboBox1.Items.Clear();
             comboBox1.ResetText();
             textBox4.Clear();
-            maskedTextBox1.Clear();            
+            maskedTextBox1.Clear();
 
             _dataEdds = _workingDb.GetEdds();
 
             if (_dataEdds.Count > 0)
-            {                
+            {
                 foreach (string[] s in _dataEdds)
                 {
                     dataGridView1.Rows.Add(s);
                     comboBox1.Items.Add(s[0]);
                 }
-            }                                
+            }
         }
 
         //Обновление таблицы ведомства ЕДДС
         List<string[]> _dataPatients = new List<string[]>();
+
         void UpdateTablePatient()
         {
             dataGridView3.Rows.Clear();
@@ -138,6 +145,7 @@ namespace MCHSAutoTable
 
         //Обновление checkBox с должностями
         List<string[]> _dataPosition = new List<string[]>();
+
         void UpdateDataPosition()
         {
             _dataPosition = _workingDb.GetPosition();
@@ -157,6 +165,7 @@ namespace MCHSAutoTable
 
         //Обновление checkBox с подразделениями
         List<string[]> _dataSubDep = new List<string[]>();
+
         void UpdateDataSubDepartment()
         {
             _dataSubDep = _workingDb.GetSubDepartment();
@@ -170,12 +179,13 @@ namespace MCHSAutoTable
                 {
                     comboBox4.Items.Add(s[0]);
                     comboBox7.Items.Add(s[0]);
-                } 
+                }
             }
         }
 
         //Обновление checkBox с сотрудниками
         List<string[]> _dataStaff = new List<string[]>();
+
         void UpdateDataStaff()
         {
             dataGridView2.Rows.Clear();
@@ -195,6 +205,7 @@ namespace MCHSAutoTable
 
         //Обновление checkBox с Болезнями
         List<string[]> _dataDiagnosis = new List<string[]>();
+
         void UpdateDataDiagnosis()
         {
             _dataDiagnosis = _workingDb.GetDiagnosis();
@@ -225,57 +236,59 @@ namespace MCHSAutoTable
         private void button7_Click(object sender, EventArgs e)
         {
             if (!(comboBox1.SelectedIndex == -1))
-            {                
+            {
                 _workingDb.DeleteEdds(_dataEdds[comboBox1.SelectedIndex][2]);
                 UpdateTableEdds();
             }
             else
             {
                 MessageBox.Show("Не выбран элемент для удаления!");
-            }            
+            }
         }
 
         List<string[]> _tableDataEdds = new List<string[]>();
+
         //Добавить в таблицу ЕДДС для вывода
         private void button3_Click(object sender, EventArgs e)
-        {                           
-                //string date = dateTime.ToShortDateString();//Дата для файла
-                //string edds = dataEDDS[listBox1.SelectedIndex][0];
-                //string phoneNumberTable = dataEDDS[listBox1.SelectedIndex][1];
-                
-                DateTime dateTime = DateTime.Now;
-                string time = dateTime.ToString("HH-mm");
-                textBox1.Text = time;
+        {
+            //string date = dateTime.ToShortDateString();//Дата для файла
+            //string edds = dataEDDS[listBox1.SelectedIndex][0];
+            //string phoneNumberTable = dataEDDS[listBox1.SelectedIndex][1];
 
-                string working = radioButton1.Checked ? "Исправна" : "Не исправна";
-                string fedds = textBox2.Text;
-               
-                //listBox1.SelectedIndex += 1;
+            DateTime dateTime = DateTime.Now;
+            string time = dateTime.ToString("HH-mm");
+            textBox1.Text = time;
 
-                if (!textBox2.Text.Equals(""))
-                {                    
-                    label3.Text = "Номер телефона: " + _dataEdds[_indexDataEdds][1];
-                    _workingDb.AddDbTableEdds(fedds, time, working);
+            string working = radioButton1.Checked ? "Исправна" : "Не исправна";
+            string fedds = textBox2.Text;
 
-                    textBox2.Clear();
+            //listBox1.SelectedIndex += 1;
 
-                    if (_dataEdds.Count() - 1 != listBox1.SelectedIndex)
-                    {
-                        listBox1.SelectedIndex += 1;
-                    }
-                    else
-                    {
-                        _btn1Status = 0;
-                        button1.BackColor = Color.ForestGreen;
+            if (!textBox2.Text.Equals(""))
+            {
+                label3.Text = "Номер телефона: " + _dataEdds[_indexDataEdds][1];
+                _workingDb.AddDbTableEdds(fedds, time, working);
 
-                        button3.Enabled = false;
-                        textBox2.Enabled = false;
-                        panel5.Visible = true;
-                    }
+                textBox2.Clear();
+
+                if (_dataEdds.Count() - 1 != listBox1.SelectedIndex)
+                {
+                    listBox1.SelectedIndex += 1;
                 }
                 else
-                    MessageBox.Show("Поле с Фамилией не заполено!");
-                radioButton1.Checked = true;          
+                {
+                    _btn1Status = 0;
+                    button1.BackColor = Color.ForestGreen;
+
+                    button3.Enabled = false;
+                    textBox2.Enabled = false;
+                    panel5.Visible = true;
+                }
+            }
+            else
+                MessageBox.Show("Поле с Фамилией не заполено!");
+
+            radioButton1.Checked = true;
         }
 
         //Кнопка завершить и сохранить данные в БД ЕДДС
@@ -305,6 +318,7 @@ namespace MCHSAutoTable
                 button.BackColor = Color.ForestGreen;
                 panel.Visible = false;
             }
+
             btn = (byte)(btn == 0 ? 1 : 0);
             return btn;
         }
@@ -340,6 +354,7 @@ namespace MCHSAutoTable
         }
 
         int _indexDataDbWorkStaff = 0;
+
         //Смена информации в Панели в разделе Работники
         public void MessageBoxAddData(int paramSwitch)
         {
@@ -384,6 +399,7 @@ namespace MCHSAutoTable
                 comboBox4.Items.Clear();
                 UpdateDataSubDepartment();
             }
+
             panel4.Visible = false;
             textBox5.Clear();
         }
@@ -398,9 +414,11 @@ namespace MCHSAutoTable
         //Добавление сотрудника
         private void button9_Click(object sender, EventArgs e)
         {
-            if (!(textBox3.Text.Equals("") || comboBox2.Text.Equals("") || comboBox4.Text.Equals("") || maskedTextBox2.Text.Equals("") || comboBox3.Text.Equals("") || comboBox6.Text.Equals("")))
+            if (!(textBox3.Text.Equals("") || comboBox2.Text.Equals("") || comboBox4.Text.Equals("") ||
+                  maskedTextBox2.Text.Equals("") || comboBox3.Text.Equals("") || comboBox6.Text.Equals("")))
             {
-                _workingDb.AddDbStaff(textBox3.Text, comboBox2.Text, comboBox4.Text, maskedTextBox2.Text, comboBox3.Text, comboBox6.Text);
+                _workingDb.AddDbStaff(textBox3.Text, comboBox2.Text, comboBox4.Text, maskedTextBox2.Text,
+                    comboBox3.Text, comboBox6.Text);
 
                 textBox3.Clear();
                 comboBox2.Text = "";
@@ -415,7 +433,6 @@ namespace MCHSAutoTable
             {
                 MessageBox.Show("Не заполнены данные!");
             }
-            
         }
 
         //Удаление сотрудника
@@ -454,6 +471,7 @@ namespace MCHSAutoTable
             {
                 MessageBox.Show("Не выбран элемент для удаления!");
             }
+
             comboBox7.Items.Clear();
             textBox5.Clear();
         }
@@ -462,7 +480,7 @@ namespace MCHSAutoTable
         {
             string search = textBox9.Text;
             int index = listBox2.FindString(search);
-            listBox2.SelectedIndex = index; 
+            listBox2.SelectedIndex = index;
         }
 
         //Открытие панели для добавление Диагноза
@@ -496,6 +514,7 @@ namespace MCHSAutoTable
             {
                 MessageBox.Show("Не выбран элемент для удаления!");
             }
+
             comboBox9.Items.Clear();
             textBox7.Clear();
         }
@@ -509,55 +528,59 @@ namespace MCHSAutoTable
         //Добавление Пациента
         private void button16_Click(object sender, EventArgs e)
         {
-            string fioStaff = _dataStaff[listBox2.SelectedIndex][0];
-            string phoneNumber = _dataStaff[listBox2.SelectedIndex][5];
-            string subDep = _dataStaff[listBox2.SelectedIndex][3];
-            string position = _dataStaff[listBox2.SelectedIndex][1];
-            string rank = _dataStaff[listBox2.SelectedIndex][2];
-            string shift = _dataStaff[listBox2.SelectedIndex][4];
-            string date = dateTimePicker1.Value.ToShortDateString();
-            string diagnosis = comboBox8.Text;
-            string healing = radioButton4.Checked ? "амбулаторное" : "стационарное";
-            string vaccinated = checkBox1.Checked ? "+" : "-";
-
-            List<string[]> nameFio = _workingDb.GetPatients();
-
-            if (!(nameFio.Equals(_dataStaff[listBox2.SelectedIndex][0])))
+            if (_dataStaff != null && _dataStaff.Count != 0)
             {
-                _workingDb.AddDbPatient(fioStaff, phoneNumber, subDep, position,  rank,  date,
-            diagnosis, healing, shift, vaccinated);
+                string fioStaff = _dataStaff[listBox2.SelectedIndex][0];
+                string phoneNumber = _dataStaff[listBox2.SelectedIndex][5];
+                string subDep = _dataStaff[listBox2.SelectedIndex][3];
+                string position = _dataStaff[listBox2.SelectedIndex][1];
+                string rank = _dataStaff[listBox2.SelectedIndex][2];
+                string shift = _dataStaff[listBox2.SelectedIndex][4];
+                string date = dateTimePicker1.Value.ToShortDateString();
+                string diagnosis = comboBox8.Text;
+                string healing = radioButton4.Checked ? "амбулаторное" : "стационарное";
+                string vaccinated = checkBox1.Checked ? "+" : "-";
 
-                textBox9.Clear();
-                comboBox8.Items.Clear();
-                dateTimePicker1.Text = "";
-                radioButton3.Checked = false;
-                radioButton4.Checked = false;
-                checkBox1.Checked = false;
+                List<string[]> nameFio = _workingDb.GetPatients();
 
-                UpdateTablePatient();
+
+                if (!(nameFio.Equals(_dataStaff[listBox2.SelectedIndex][0])))
+                {
+                    _workingDb.AddDbPatient(fioStaff, phoneNumber, subDep, position, rank, date,
+                        diagnosis, healing, shift, vaccinated);
+
+                    textBox9.Clear();
+                    comboBox8.Items.Clear();
+                    dateTimePicker1.Text = "";
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                    checkBox1.Checked = false;
+
+                    UpdateTablePatient();
+                }
+                else
+                    MessageBox.Show("Данный пациент уже существует!");
             }
-            else
-                MessageBox.Show("Данный пациент уже существует!");   
+            else MessageBox.Show("Не выбран сотрудник!");
         }
 
         //Удаление Пациента из БД
-        private void button19_Click(object sender, EventArgs e)
-        {
-            if (!(comboBox10.SelectedIndex == -1))
+            private void button19_Click(object sender, EventArgs e)
             {
-                _workingDb.DeletePatient(_dataPatients[comboBox10.SelectedIndex][10]);
-                comboBox10.Items.Clear();
-                UpdateTablePatient();
+                if (!(comboBox10.SelectedIndex == -1))
+                {
+                    _workingDb.DeletePatient(_dataPatients[comboBox10.SelectedIndex][10]);
+                    comboBox10.Items.Clear();
+                    UpdateTablePatient();
+                }
+                else
+                {
+                    MessageBox.Show("Не выбран элемент для удаления!");
+                }
             }
-            else
+
+            private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
             {
-                MessageBox.Show("Не выбран элемент для удаления!");
-            }         
-        }
-
-        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
+            }
         }
     }
-}

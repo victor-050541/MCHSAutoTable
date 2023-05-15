@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCHSAutoTable", "MCHSAutoTable\MCHSAutoTable.csproj", "{B062751D-676C-4636-BC30-4B4C1863A75F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCHSAutoTableTests", "MCHSAutoTableTests\MCHSAutoTableTests.csproj", "{7EBC93EB-4879-4FE2-9926-8A67B2F16329}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B062751D-676C-4636-BC30-4B4C1863A75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B062751D-676C-4636-BC30-4B4C1863A75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B062751D-676C-4636-BC30-4B4C1863A75F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EBC93EB-4879-4FE2-9926-8A67B2F16329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EBC93EB-4879-4FE2-9926-8A67B2F16329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EBC93EB-4879-4FE2-9926-8A67B2F16329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EBC93EB-4879-4FE2-9926-8A67B2F16329}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
